@@ -103,11 +103,6 @@ const toggleTaskCompleted = function () {
   targetList.appendChild(listItem);
 };
 
-//The glue to hold it all together.
-
-//Set the click handler to the addTask function.
-addTaskButton.addEventListener("click", addTask);
-
 const bindTaskEvents = function (listItem) {
   //select ListItems children
   const checkbox = listItem.querySelector("input[type=checkbox]");
@@ -120,6 +115,11 @@ const bindTaskEvents = function (listItem) {
   deleteButton.onclick = deleteTask;
   checkbox.onchange = toggleTaskCompleted;
 };
+
+//The glue to hold it all together.
+
+//Set the click handler to the addTask function.
+addTaskButton.addEventListener("click", addTask);
 
 // Tasks written in index.html are not created by createTaskElement
 // and still need their event handlers.
