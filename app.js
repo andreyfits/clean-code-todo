@@ -121,18 +121,9 @@ const bindTaskEvents = function (listItem) {
   checkbox.onchange = toggleTaskCompleted;
 };
 
-//cycle over todoList ul list items
-//for each list item
-for (let i = 0; i < todoList.children.length; i++) {
-  //bind events to list items chldren(tasksCompleted)
-  bindTaskEvents(todoList.children[i]);
-}
-
-//cycle over completedList ul list items
-for (let i = 0; i < completedList.children.length; i++) {
-  //bind events to list items chldren(tasksIncompleted)
-  bindTaskEvents(completedList.children[i]);
-}
+// Tasks written in index.html are not created by createTaskElement
+// and still need their event handlers.
+[...todoList.children, ...completedList.children].forEach(bindTaskEvents);
 
 // Issues with usability don't get seen until they are in front of a human tester.
 
