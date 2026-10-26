@@ -66,8 +66,7 @@ const toggleEditMode = function () {
 
 const deleteTask = function () {
   const listItem = this.parentNode;
-  const parentList = listItem.parentNode;
-  parentList.removeChild(listItem);
+  listItem.remove();
 };
 
 const toggleTaskCompleted = function () {
