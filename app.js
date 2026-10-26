@@ -13,7 +13,7 @@ const todoList = document.getElementById("incompleteTasks"); //ul of #incomplete
 const completedList = document.getElementById("completed-tasks"); //completed-tasks
 
 //New task list item
-const createNewTaskElement = function (taskString) {
+const createTaskElement = function (taskString) {
   const listItem = document.createElement("li");
 
   //input (checkbox)
@@ -56,7 +56,7 @@ const createNewTaskElement = function (taskString) {
 const addTask = function () {
   //Create a new list item with the text from the #new-task:
   if (!newTaskInput.value) return;
-  const listItem = createNewTaskElement(newTaskInput.value);
+  const listItem = createTaskElement(newTaskInput.value);
 
   //Append listItem to todoList
   todoList.appendChild(listItem);
@@ -67,7 +67,7 @@ const addTask = function () {
 
 //Edit an existing task.
 
-const editTask = function () {
+const toggleEditMode = function () {
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector("input[type=text]");
@@ -114,8 +114,8 @@ const bindTaskEvents = function (taskListItem) {
   const editButton = taskListItem.querySelector("button.edit");
   const deleteButton = taskListItem.querySelector("button.delete");
 
-  //Bind editTask to edit button.
-  editButton.onclick = editTask;
+  //Bind toggleEditMode to edit button.
+  editButton.onclick = toggleEditMode;
   //Bind deleteTask to delete button.
   deleteButton.onclick = deleteTask;
   checkBox.onchange = toggleTaskCompleted;
