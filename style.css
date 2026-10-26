@@ -33,6 +33,7 @@ body {
 }
 .task-row-wrapper {
     display: flex;
+    margin-bottom: 16px;
 }
 ul {
     margin:0;
@@ -125,12 +126,6 @@ button.delete img {
 }
 button.delete img:hover {
     transform: rotateZ(0);
-}
-
-/* Completed */
-ul#completed-tasks label {
-    text-decoration: line-through
-    color: #888;
 }
 
 /* Edit Task */
