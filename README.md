@@ -20,9 +20,27 @@ style.css              стили
 app.js                 логика
 remove.svg             иконка кнопки удаления
 eisenhower-matrix.jpg  изображение в шапке
+eslint.config.js       настройки ESLint
+.prettierrc            настройки Prettier
+.husky/pre-commit      хук: lint-staged проверяет файлы коммита
 ```
 
-Сборщика и зависимостей нет. Чтобы запустить приложение, откройте `index.html` в браузере.
+Сборщика нет, и самому приложению зависимости не нужны: чтобы запустить его, откройте `index.html` в браузере. Пакеты из `package.json` (ESLint, Prettier, Husky, lint-staged) нужны только для разработки.
+
+## Линтер и форматтер
+
+Установите зависимости, это же подключит хук Husky:
+
+```
+npm install
+```
+
+- `npm run lint` проверяет код ESLint
+- `npm run lint:fix` применяет автоисправления ESLint
+- `npm run format` форматирует проект Prettier
+- `npm run format:check` проверяет форматирование и ничего не меняет
+
+Хук `pre-commit` запускает lint-staged: ESLint и `prettier --check` по файлам из коммита. Хук только проверяет и файлы не правит: если проверка не прошла, исправьте код и повторите коммит.
 
 ## Чек-лист поведения
 
