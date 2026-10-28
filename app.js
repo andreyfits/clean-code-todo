@@ -37,7 +37,7 @@ const createTaskElement = function (taskText) {
 };
 
 const addTask = function () {
-  if (!newTaskInput.value) return;
+  if (!newTaskInput.value.trim()) return;
   const listItem = createTaskElement(newTaskInput.value);
 
   todoList.appendChild(listItem);
